@@ -29,9 +29,6 @@ git clone https://github.com/Calastian/neovim.git ~/.config/nvim
 nvim
 ```
 
-## 📸  Screenshots
-*Adding Screenshots Soon*
-
 ## 🔧  Keybinds
 | Mode     | Keybinding   | Action                      |
 |----------|--------------|-----------------------------|
