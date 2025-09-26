@@ -1,6 +1,6 @@
 return {
     theme = {
-        style = "catppuccin",
+        style = "catppuccin", -- Options: "tokyonight", "dark_flat", catppuccin
         mode = "dark",
     },
     editor = {

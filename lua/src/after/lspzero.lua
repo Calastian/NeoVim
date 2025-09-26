@@ -214,7 +214,7 @@ vim.lsp.config.docker_compose_language_service = {
     capabilities = capabilities,
 }
 
-vim.lsp.config.terraform_ls = {
+vim.lsp.config.terraformls = {
     cmd = { 'terraform-ls', 'serve' },
     capabilities = capabilities,
 }
@@ -231,30 +231,26 @@ vim.lsp.config.sqlls = {
 }
 
 -- Other Popular Languages
-vim.lsp.config.phpactor = {
-    cmd = { 'phpactor', 'language-server' },
+vim.lsp.config.intelephense = {
+    cmd = { 'intelephense', '--stdio' },
     capabilities = capabilities,
 }
 
-vim.lsp.config.ruby_lsp = {
-    cmd = { 'ruby-lsp' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.ruby_lsp = {
+--     cmd = { 'ruby-lsp' },
+--     capabilities = capabilities,
+-- }
 
 vim.lsp.config.kotlin_language_server = {
     cmd = { 'kotlin-language-server' },
     capabilities = capabilities,
 }
 
-vim.lsp.config.sourcekit = {
-    cmd = { 'sourcekit-lsp' },
-    capabilities = capabilities,
-}
 
-vim.lsp.config.r_language_server = {
-    cmd = { 'R', '--slave', '-e', 'languageserver::run()' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.r_language_server = {
+--     cmd = { 'R', '--slave', '-e', 'languageserver::run()' },
+--     capabilities = capabilities,
+-- }
 
 vim.lsp.config.julials = {
     cmd = { 'julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; runserver()' },
@@ -266,10 +262,10 @@ vim.lsp.config.elixirls = {
     capabilities = capabilities,
 }
 
-vim.lsp.config.erlangls = {
-    cmd = { 'erlang_ls' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.erlangls = {
+--     cmd = { 'erlang_ls' },
+--     capabilities = capabilities,
+-- }
 
 vim.lsp.config.zls = {
     cmd = { 'zls' },
@@ -286,35 +282,32 @@ vim.lsp.config.crystalline = {
     capabilities = capabilities,
 }
 
-vim.lsp.config.dartls = {
-    cmd = { 'dart', 'language-server', '--protocol=lsp' },
-    capabilities = capabilities,
-}
 
-vim.lsp.config.metals = {
-    cmd = { 'metals' },
-    capabilities = capabilities,
-}
 
-vim.lsp.config.fsautocomplete = {
-    cmd = { 'fsautocomplete', '--background-service-enabled' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.metals = {
+--     cmd = { 'metals' },
+--     capabilities = capabilities,
+-- }
 
-vim.lsp.config.ocamllsp = {
-    cmd = { 'ocamllsp' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.fsautocomplete = {
+--     cmd = { 'fsautocomplete', '--background-service-enabled' },
+--     capabilities = capabilities,
+-- }
 
-vim.lsp.config.hls = {
-    cmd = { 'haskell-language-server-wrapper', '--lsp' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.ocamllsp = {
+--     cmd = { 'ocamllsp' },
+--     capabilities = capabilities,
+-- }
 
-vim.lsp.config.asm_lsp = {
-    cmd = { 'asm-lsp' },
-    capabilities = capabilities,
-}
+-- vim.lsp.config.hls = {
+--     cmd = { 'haskell-language-server-wrapper', '--lsp' },
+--     capabilities = capabilities,
+-- }
+
+-- vim.lsp.config.asm_lsp = {
+--     cmd = { 'asm-lsp' },
+--     capabilities = capabilities,
+-- }
 
 vim.lsp.config.nginx_language_server = {
     cmd = { 'nginx-language-server' },
@@ -332,11 +325,11 @@ vim.lsp.enable({
     -- Markup & Documentation
     'marksman', 'ltex',
     -- Shell & DevOps
-    'bashls', 'powershell_es', 'dockerls', 'docker_compose_language_service', 'terraform_ls', 'helm_ls',
+    'bashls', 'powershell_es', 'dockerls', 'docker_compose_language_service', 'terraformls', 'helm_ls',
     -- Database
     'sqlls',
     -- Other Languages
-    'phpactor', 'ruby_lsp', 'kotlin_language_server', 'sourcekit', 'r_language_server', 'julials',
-    'elixirls', 'erlangls', 'zls', 'nim_langserver', 'crystalline', 'dartls', 'metals', 
-    'fsautocomplete', 'ocamllsp', 'hls', 'asm_lsp', 'nginx_language_server'
+    'intelephense', 'kotlin_language_server', 'julials',
+    'elixirls', 'zls', 'nim_langserver', 'crystalline',
+    'nginx_language_server'
 })
