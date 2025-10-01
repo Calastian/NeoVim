@@ -12,6 +12,9 @@ require("src.mapping")
 
 require("src.my_plugins")
 
+-- Setup theme switcher
+require("src.theme_switcher").setup()
+
 -- General/Global LSP Configuration
 local lsp = vim.lsp
 
