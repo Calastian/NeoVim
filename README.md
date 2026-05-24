@@ -43,5 +43,5 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 ## 📄  License
 This project is licensed under the MIT License. 
 ## 📬  Contact
-For questions or feedback, feel free to reach out to me at [christiannovgrod.dev@gmail.com]
+For questions or feedback, please [open an issue](https://github.com/Calastian/neovim/issues).
 

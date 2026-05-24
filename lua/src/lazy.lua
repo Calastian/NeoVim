@@ -24,6 +24,8 @@ require("lazy").setup({
 
 -- Configure plugins after they are loaded
 require("src.after.bufferline")
+require("src.after.claudecode")
+require("src.after.gitsigns")
 require("src.after.lspzero")
 require("src.after.lualine")
 require("src.after.mason")
@@ -31,3 +33,4 @@ require("src.after.neotree")
 require("src.after.telescope")
 require("src.after.toggleterm")
 require("src.after.treesitter")
+require("src.after.whichkey")
