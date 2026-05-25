@@ -31,7 +31,8 @@ require("toggleterm").setup{
     persist_size = true,
     direction = 'horizontal',
     close_on_exit = true, -- close the terminal window when the process exits
-    shell = preferred_shell(),
+    --shell = preferred_shell(),
+    shell = "powershell.exe",
     float_opts = {
         border = 'single',
         width = 200,
