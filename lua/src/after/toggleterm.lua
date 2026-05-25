@@ -1,5 +1,24 @@
 local config = require("config")
 
+-- Pick a unix-friendly shell:
+--   Windows: Git Bash (real ls/grep/sed/cat/find/curl/ssh) if installed,
+--            otherwise fall back to PowerShell.
+--   Other:   whatever $SHELL says (vim.o.shell).
+local function preferred_shell()
+    if vim.fn.has("win32") == 1 then
+        for _, p in ipairs({
+            "C:/Program Files/Git/bin/bash.exe",
+            "C:/Program Files (x86)/Git/bin/bash.exe",
+        }) do
+            if vim.fn.executable(p) == 1 then
+                return p .. " --login -i"
+            end
+        end
+        return "powershell.exe"
+    end
+    return vim.o.shell
+end
+
 require("toggleterm").setup{
     size = 20,
     open_mapping = config.terminal.toggle,
@@ -12,7 +31,7 @@ require("toggleterm").setup{
     persist_size = true,
     direction = 'horizontal',
     close_on_exit = true, -- close the terminal window when the process exits
-    shell = vim.o.shell, -- change the default shell
+    shell = preferred_shell(),
     float_opts = {
         border = 'single',
         width = 200,

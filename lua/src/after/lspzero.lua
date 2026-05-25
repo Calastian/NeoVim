@@ -1,84 +1,25 @@
-local lsp_zero = require('lsp-zero')
-
--- lsp_zero.preset("recommended")
-
-lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({buffer = bufnr})
-end)
-
--- Setup lsp-zero with modern vim.lsp.config
-lsp_zero.extend_lspconfig()
-
--- Auto Complete:
-local cmp = require('cmp')
-local cmp_lsp = require("cmp_nvim_lsp")
-
-cmp.setup({
-    sources = {
-        {name = 'nvim_lsp'},
-    },
-    mapping = {
-        ['<Enter>'] = cmp.mapping.confirm({select = false}),
-        ['<Esc>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-        ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
-        ['<C-p>'] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_prev_item({behavior = 'insert'})
-            else
-                cmp.complete()
-            end
-        end),
-        ['<C-n>'] = cmp.mapping(function()
-            if cmp.visible() then
-                cmp.select_next_item({behavior = 'insert'})
-            else
-                cmp.complete()
-            end
-        end),
-    },
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
+-- LSP keymaps on attach. nvim 0.11 already provides good defaults:
+--   K          hover           gd   definition
+--   grn        rename          grr  references
+--   gri        implementation  gra  code action  (normal + visual)
+--   <C-s>      signature help  [d/]d  diagnostic jump
+-- We add the lsp-zero-style F-key bindings on top for muscle memory.
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("UserLspKeymaps", { clear = true }),
+    callback = function(args)
+        local opts = { buffer = args.buf, silent = true }
+        vim.keymap.set("n",          "<F2>", vim.lsp.buf.rename,                            opts)
+        vim.keymap.set("n",          "<F3>", function() vim.lsp.buf.format({ async = true }) end, opts)
+        vim.keymap.set({ "n", "x" }, "<F4>", vim.lsp.buf.code_action,                       opts)
+    end,
 })
 
-<<<<<<< HEAD
--- LSP Language Configuration (nvim 0.11+ vim.lsp.config API):
-local servers = {
-    lua_ls = {
-        settings = {
-            diagnostics = { globals = { 'vim' } },
-        },
-    },
-    clangd = {},
-    cmake = {
-        filetypes = { "cmake", "CMakeLists.txt" },
-    },
-    pylsp = {},
-    gopls = {
-        settings = {
-            gopls = {
-                analyses = { unusedparams = true },
-                staticcheck = true,
-                gofumpt = true,
-            },
-        },
-    },
-    hls = {},
-    jsonls = {
-        filetypes = { "json", "mcmeta" },
-    },
-}
-
-for name, opts in pairs(servers) do
-    vim.lsp.config(name, opts)
-    vim.lsp.enable(name)
-end
-=======
--- LSP Language Configuration with modern vim.lsp.config API:
-local capabilities = cmp_lsp.default_capabilities()
+-- LSP Language Configuration with modern vim.lsp.config API.
+-- cmp.setup itself lives in plugins/lspzero.lua's cmp `config` callback
+-- (so it can lazy-load on InsertEnter). Only the capabilities table --
+-- which is lightweight and doesn't pull in the full cmp tree -- is
+-- required here.
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- System Languages
 vim.lsp.config.lua_ls = {
@@ -366,4 +307,3 @@ vim.lsp.enable({
     'elixirls', 'zls', 'nim_langserver', 'crystalline',
     'nginx_language_server'
 })
->>>>>>> c11dab3fe4540ac27037951211fffa798402154c

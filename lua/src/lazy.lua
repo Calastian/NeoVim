@@ -22,12 +22,13 @@ require("lazy").setup({
     },
 })
 
--- Configure plugins after they are loaded
+-- After-configs that run eagerly at startup.
+-- NOTE: lspzero and mason are NOT here -- they're triggered by their own
+-- plugin specs' `config` callbacks (lazy on BufReadPre / VeryLazy), which
+-- is the whole point of the lazy event triggers.
 require("src.after.bufferline")
 require("src.after.gitsigns")
-require("src.after.lspzero")
 require("src.after.lualine")
-require("src.after.mason")
 require("src.after.neotree")
 require("src.after.sidekick")
 require("src.after.telescope")
