@@ -1,6 +1,6 @@
 return {
     theme = {
-        style = "catppuccin",
+        style = "yorumi",
         mode = "dark",
     },
     editor = {
@@ -27,13 +27,11 @@ return {
         toggle = "<C-\\>"
     },
     claude = {
-        toggle = "<leader>cc",
-        focus = "<leader>cf",
-        send = "<leader>cs",          -- send selection (visual) or buffer (normal)
-        diagnostics = "<leader>cd",   -- send diagnostics to Claude
-        add_buffer = "<leader>cb",    -- @-mention current buffer
-        accept_diff = "<leader>ca",
-        deny_diff = "<leader>cx",
+        toggle = "<leader>cc",   -- toggle Claude split (works in n/v)
+        focus  = "<leader>cf",   -- jump cursor back into the Claude split
+        send   = "<leader>cs",   -- send buffer (normal) / selection (visual)
+        prompt = "<leader>cp",   -- pick from prompt templates
+        ask    = "<leader>ca",   -- type a one-off question, send it
     },
     gitsigns = {
         next_hunk = "]c",
@@ -44,7 +42,7 @@ return {
         blame_line = "<leader>hb",
     },
     window = {
-       nav_left = "<C-Left>",
+        nav_left = "<C-Left>",
         nav_down = "<C-Down>",
         nav_up = "<C-Up>",
         nav_right = "<C-Right>",
@@ -55,5 +53,5 @@ return {
     },
     hotkeys = {
         easy_quit = "<C-q>",
-
+    },
 }

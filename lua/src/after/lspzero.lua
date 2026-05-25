@@ -38,42 +38,34 @@ cmp.setup({
     },
 })
 
--- LSP Language Configuration:
-
--- Lua
-require("lspconfig").lua_ls.setup({
-    settings = {
-        diagnostics = {
-            globals = { 'vim' },
-        },
-    }
-})
-
--- C/C++
-require('lspconfig').clangd.setup({})
-require('lspconfig').cmake.setup({
-    filetypes = { "cmake", "CMakeLists.txt" }
-})
-
-require('lspconfig').pylsp.setup({})
-
--- GoLang:
-require('lspconfig').gopls.setup({
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-            staticcheck = true,
-            gofumpt = true,
+-- LSP Language Configuration (nvim 0.11+ vim.lsp.config API):
+local servers = {
+    lua_ls = {
+        settings = {
+            diagnostics = { globals = { 'vim' } },
         },
     },
-})
+    clangd = {},
+    cmake = {
+        filetypes = { "cmake", "CMakeLists.txt" },
+    },
+    pylsp = {},
+    gopls = {
+        settings = {
+            gopls = {
+                analyses = { unusedparams = true },
+                staticcheck = true,
+                gofumpt = true,
+            },
+        },
+    },
+    hls = {},
+    jsonls = {
+        filetypes = { "json", "mcmeta" },
+    },
+}
 
--- Haskell:
-require('lspconfig').hls.setup({})
-
--- JSON:
-require('lspconfig').jsonls.setup({
-    filetypes = { "json", "mcmeta" }
-})
+for name, opts in pairs(servers) do
+    vim.lsp.config(name, opts)
+    vim.lsp.enable(name)
+end

@@ -1,8 +1,7 @@
 return {
     {
-        "coder/claudecode.nvim",
+        "folke/sidekick.nvim",
         dependencies = { "folke/snacks.nvim" },
-        config = true,
     },
     {
         "folke/snacks.nvim",
@@ -10,6 +9,7 @@ return {
         lazy = false,
         opts = {
             input = { enabled = true },
+            picker = { enabled = true },
         },
     },
 }
