@@ -1,0 +1,1 @@
+return {"sekke276/dark_flat.nvim", name = "darkflat", lazy = false, priority = 1000} 

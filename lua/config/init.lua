@@ -1,6 +1,10 @@
 return {
     theme = {
+<<<<<<< HEAD
         style = "yorumi",
+=======
+        style = "catppuccin", -- Options: "tokyonight", "dark_flat", catppuccin
+>>>>>>> c11dab3fe4540ac27037951211fffa798402154c
         mode = "dark",
     },
     editor = {
