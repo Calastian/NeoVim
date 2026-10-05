@@ -9,7 +9,7 @@
 
 ## 🛠️  Installation
 ### Prerequisites
-* **Neovim:** Ensure you have Neovim version 0.9 or higher installed.
+* **Neovim:** Ensure you have Neovim version 0.11 or higher installed.
 * **Git:** Required for cloning the repository and managing plugins.
 > **Note:** This guide assumes you are using Linux or macOS. If you are using Windows, I'd recommend installing WSL2. 
 

@@ -18,6 +18,7 @@ return {
     filetree = {
         jump_to = "<C-h>",
         toggle = "<C-n>",
+        tree_side = "left",
     },
     telescope = {
         findfile = "<leader>ff",
@@ -25,13 +26,6 @@ return {
     },
     terminal = {
         toggle = "<C-\\>"
-    },
-    claude = {
-        toggle = "<leader>cc",   -- toggle Claude split (works in n/v)
-        focus  = "<leader>cf",   -- jump cursor back into the Claude split
-        send   = "<leader>cs",   -- send buffer (normal) / selection (visual)
-        prompt = "<leader>cp",   -- pick from prompt templates
-        ask    = "<leader>ca",   -- type a one-off question, send it
     },
     gitsigns = {
         next_hunk = "]c",

@@ -20,6 +20,7 @@ M.themes = {
     { name = "Catppuccin", colorscheme = "catppuccin" },
     { name = "Gruvbox", colorscheme = "gruvbox" },
     { name = "One Dark", colorscheme = "onedark" },
+    { name = "Yorumi", colorscheme = "yorumi" },
 }
 
 -- Current theme index
@@ -70,6 +71,15 @@ end
 
 -- Setup function to initialize keymaps
 function M.setup()
+    -- Start the cycle from the theme actually loaded at startup.
+    local config = require("config")
+    for i, theme in ipairs(M.themes) do
+        if theme.colorscheme == config.theme.style then
+            current_index = i
+            break
+        end
+    end
+
     -- Keymaps for theme switching
     vim.keymap.set('n', '<leader>tn', M.next_theme, { desc = 'Next theme' })
     vim.keymap.set('n', '<leader>tp', M.prev_theme, { desc = 'Previous theme' })

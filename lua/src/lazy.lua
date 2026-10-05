@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins from the plugins folder.
 require("lazy").setup({
+    rocks = { enabled = false },
     spec = {
         { import = "src.plugins" },
     },
@@ -30,8 +31,5 @@ require("src.after.bufferline")
 require("src.after.gitsigns")
 require("src.after.lualine")
 require("src.after.neotree")
-require("src.after.sidekick")
-require("src.after.telescope")
 require("src.after.toggleterm")
 require("src.after.treesitter")
-require("src.after.whichkey")

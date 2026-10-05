@@ -1,6 +1,3 @@
-# Claude Code local state (machine-specific, contains absolute paths)
-.claude/
-
 # Editor swap / backup
 *.swp
 *.swo

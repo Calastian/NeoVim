@@ -20,7 +20,8 @@ local ensure_installed = {
     "marksman", "ltex",
 
     -- Shell & DevOps
-    "bashls", "powershell_es", "dockerls", "docker_compose_language_service",
+    "bashls", "dockerls", "docker_compose_language_service",
+    -- "powershell_es",             -- needs pwsh (not installed)
     "terraformls",
     -- "helm_ls",                    -- needs Helm CLI
 
@@ -52,7 +53,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = ensure_installed,
-                automatic_installation = true,
+                automatic_enable = false,
             })
         end,
     },

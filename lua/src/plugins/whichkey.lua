@@ -2,5 +2,19 @@ return {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
+        config = function()
+            local wk = require("which-key")
+
+            wk.setup({
+                preset = "modern",
+                delay = 300,
+            })
+
+            wk.add({
+                { "<leader>f", group = "Find (telescope)" },
+                { "<leader>h", group = "Git hunks" },
+                { "<leader>s", group = "Splits" },
+            })
+        end,
     },
 }

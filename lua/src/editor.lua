@@ -14,6 +14,7 @@ vim.keymap.set("n", config.hotkeys.easy_quit, ":wqa<CR>", {noremap = true, silen
 -- Hybrid line numbers: relative in normal mode (for fast `3j`/`5k` jumps),
 -- absolute in insert mode (so you see real line numbers while editing).
 if config.editor.relative_line_numbers then
+    vim.opt.relativenumber = true
     local grp = vim.api.nvim_create_augroup("HybridLineNumbers", { clear = true })
     vim.api.nvim_create_autocmd({ "InsertEnter" }, {
         group = grp,
